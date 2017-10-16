@@ -7,6 +7,7 @@ import {
   View,
   FlatList,
   StyleSheet,
+  RefreshControl
 } from 'react-native';
 import UTILS from 'mimikiy-utils';
 
@@ -14,44 +15,59 @@ class BaseList extends PureComponent {
   constructor(props) {
     super(props);
     
-    this.state = {};
-    
     this.onEndReach = this.onEndReach.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
+    this.load = this.load.bind(this);
+  }
+  
+  load(isPull) {
+    const {total, data, loading} = this.props;
+    if (loading) {
+      return;
+    }
+    if (isPull && total !== 0 && total === data.length) {
+      return;
+    }
+    
+    this.props.onLoad(isPull)
   }
   
   onEndReach() {
-    if (!this.props.loading) {
-      this.props.onLoad(true);
-    }
+    this.load(true);
   }
   
-  onRefresh(){
-    if (!this.props.loading) {
-      this.props.onLoad();
-    }
+  onRefresh() {
+    this.load(false);
   }
   
   render() {
     const {renderSeparator, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
     
+    if (!data || data.length <= 0) {
+      return (
+        <View style={{flex: 1}} />
+      );
+    }
     
     return (
       <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={loading}
+            onRefresh={this.onRefresh}
+          />
+        }
         data={data}
-        ItemSeparatorComponent={renderSeparator}
-        initialNumToRender={10}
+        initialNumToRender={1}
         keyExtractor={keyExtractor}
-        extraData={this.state}
+        onEndReached={this.onEndReach}
+        onEndReachedThreshold={0}
+        scrollEventThrottle={16}
+        ItemSeparatorComponent={renderSeparator}
         horizontal={false}
         ListEmptyComponent={empty}
         ListFooterComponent={footer}
         ListHeaderComponent={header}
-        onEndReached={this.onEndReach}
-        onEndReachedThreshold={0.5}
-        onRefresh={this.onRefresh}
-        refreshing={loading}
-        scrollEventThrottle={16}
         {...others}
       />
     );
@@ -66,7 +82,8 @@ BaseList.propTypes = {
   footer: PropTypes.node,
   header: PropTypes.node,
   onLoad: PropTypes.func,
-  renderSeparator: PropTypes.func
+  renderSeparator: PropTypes.func,
+  total: PropTypes.number,
 };
 
 BaseList.defaultProps = {
@@ -79,6 +96,7 @@ BaseList.defaultProps = {
   footer: null,
   header: null,
   onLoad: UTILS.noop,
+  total: 0,
   renderSeparator: null
 };
 
