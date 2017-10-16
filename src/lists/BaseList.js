@@ -17,19 +17,29 @@ class BaseList extends PureComponent {
     this.state = {};
     
     this.onEndReach = this.onEndReach.bind(this);
+    this.onRefresh = this.onRefresh.bind(this);
   }
   
   onEndReach() {
-    this.props.onRefresh(true);
+    if (!this.props.loading) {
+      this.props.onLoad(true);
+    }
+  }
+  
+  onRefresh(){
+    if (!this.props.loading) {
+      this.props.onLoad();
+    }
   }
   
   render() {
-    const {data, empty, loading, footer, header, onLoad, keyExtractor, ...others} = this.props;
+    const {renderSeparator, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
     
     
     return (
       <FlatList
         data={data}
+        ItemSeparatorComponent={renderSeparator}
         initialNumToRender={10}
         keyExtractor={keyExtractor}
         extraData={this.state}
@@ -38,8 +48,8 @@ class BaseList extends PureComponent {
         ListFooterComponent={footer}
         ListHeaderComponent={header}
         onEndReached={this.onEndReach}
-        onEndReachedThreshold={5}
-        onRefresh={onLoad}
+        onEndReachedThreshold={0.5}
+        onRefresh={this.onRefresh}
         refreshing={loading}
         scrollEventThrottle={16}
         {...others}
@@ -53,9 +63,10 @@ BaseList.propTypes = {
   keyExtractor: PropTypes.func,
   data: PropTypes.array,
   empty: PropTypes.node,
-  footer : PropTypes.node,
+  footer: PropTypes.node,
   header: PropTypes.node,
-  onLoad: PropTypes.func
+  onLoad: PropTypes.func,
+  renderSeparator: PropTypes.func
 };
 
 BaseList.defaultProps = {
@@ -67,7 +78,8 @@ BaseList.defaultProps = {
   empty: null,
   footer: null,
   header: null,
-  onLoad: UTILS.noop
+  onLoad: UTILS.noop,
+  renderSeparator: null
 };
 
 export default BaseList;
