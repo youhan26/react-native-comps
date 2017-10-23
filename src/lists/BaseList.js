@@ -43,12 +43,6 @@ class BaseList extends PureComponent {
   render() {
     const {renderSeparator, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
     
-    if (!data || data.length <= 0) {
-      return (
-        <View style={{flex: 1}} />
-      );
-    }
-    
     return (
       <FlatList
         refreshControl={
