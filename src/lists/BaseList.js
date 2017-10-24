@@ -20,6 +20,12 @@ class BaseList extends PureComponent {
     this.load = this.load.bind(this);
   }
   
+  componentDidMount() {
+    if (this.props.initLoad) {
+      this.load(false);
+    }
+  }
+  
   load(isPull) {
     const {total, data, loading} = this.props;
     if (loading) {
@@ -70,6 +76,7 @@ class BaseList extends PureComponent {
 
 BaseList.propTypes = {
   loading: PropTypes.bool,
+  initLoad: PropTypes.bool,
   keyExtractor: PropTypes.func,
   data: PropTypes.array,
   empty: PropTypes.node,
@@ -82,6 +89,7 @@ BaseList.propTypes = {
 
 BaseList.defaultProps = {
   loading: false,
+  initLoad: true,
   keyExtractor: function (item) {
     return item.key;
   },
