@@ -5,13 +5,13 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
-  FlatList,
+  SectionList,
   StyleSheet,
   RefreshControl
 } from 'react-native';
 import UTILS from 'mimikiy-utils';
 
-class BaseList extends PureComponent {
+class BaseSectionList extends PureComponent {
   constructor(props) {
     super(props);
     
@@ -47,10 +47,12 @@ class BaseList extends PureComponent {
   }
   
   render() {
-    const {renderSeparator, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
+    const {renderSeparator,
+      sectionSeparator,
+      data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
     
     return (
-      <FlatList
+      <SectionList
         refreshControl={
           <RefreshControl
             refreshing={loading}
@@ -68,38 +70,55 @@ class BaseList extends PureComponent {
         ListEmptyComponent={empty}
         ListFooterComponent={footer}
         ListHeaderComponent={header}
+        SectionSeparatorComponent={sectionSeparator}
         {...others}
       />
     );
   }
 }
 
-BaseList.propTypes = {
-  loading: PropTypes.bool,
+BaseSectionList.propTypes = {
+  sections: PropTypes.arrayOf(PropTypes.shape({
+    data: PropTypes.array,
+    title: PropTypes.string
+  })).isRequired,
+  
   initLoad: PropTypes.bool,
-  keyExtractor: PropTypes.func,
-  data: PropTypes.array,
-  empty: PropTypes.node,
-  footer: PropTypes.node,
-  header: PropTypes.node,
   onLoad: PropTypes.func,
-  renderSeparator: PropTypes.func,
+  loading: PropTypes.bool,
   total: PropTypes.number,
+  keyExtractor: PropTypes.func,
+  extraData: PropTypes.any,
+  header: PropTypes.node,
+  footer: PropTypes.node,
+  empty: PropTypes.node,
+  renderSeparator: PropTypes.func,
+  renderItem: PropTypes.func,
+  sectionSeparator: PropTypes.func,
+  renderSectionFooter: PropTypes.func,
+  renderSectionHeader: PropTypes.func,
+  stickySectionHeadersEnabled: PropTypes.bool,
 };
 
-BaseList.defaultProps = {
+BaseSectionList.defaultProps = {
   loading: false,
   initLoad: true,
   keyExtractor: function (item) {
     return item.key;
   },
-  data: [],
+  sections: [],
+  onLoad: UTILS.noop,
+  total: 0,
+  
   empty: null,
   footer: null,
   header: null,
-  onLoad: UTILS.noop,
-  total: 0,
-  renderSeparator: null
+  renderSeparator: null,
+  renderItem: UTILS.noop,
+  renderSectionHeader: UTILS.noop,
+  sectionSeparator: UTILS.noop,
+  extraData: null,
+  stickySectionHeadersEnabled: true
 };
 
-export default BaseList;
+export default BaseSectionList;
