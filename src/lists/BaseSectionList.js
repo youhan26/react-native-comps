@@ -27,15 +27,18 @@ class BaseSectionList extends PureComponent {
   }
   
   load(isPull) {
-    const {total, data, loading} = this.props;
+    const {total, sections, loading} = this.props;
     if (loading) {
       return;
     }
-    if (isPull && total !== 0 && total === data.length) {
+    const len = sections.reduce((sum, obj) => {
+      return sum + obj.data.length;
+    }, 0);
+    if (isPull && total !== 0 && total === len) {
       return;
     }
     
-    this.props.onLoad(isPull)
+    this.props.onLoad(isPull);
   }
   
   onEndReach() {
@@ -47,9 +50,11 @@ class BaseSectionList extends PureComponent {
   }
   
   render() {
-    const {renderSeparator,
+    const {
+      renderSeparator,
       sectionSeparator,
-      data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
+      sections, empty, loading, footer, header, keyExtractor, ...others
+    } = this.props;
     
     return (
       <SectionList
@@ -59,7 +64,6 @@ class BaseSectionList extends PureComponent {
             onRefresh={this.onRefresh}
           />
         }
-        data={data}
         initialNumToRender={1}
         keyExtractor={keyExtractor}
         onEndReached={this.onEndReach}
@@ -71,6 +75,7 @@ class BaseSectionList extends PureComponent {
         ListFooterComponent={footer}
         ListHeaderComponent={header}
         SectionSeparatorComponent={sectionSeparator}
+        sections={sections}
         {...others}
       />
     );
@@ -113,10 +118,10 @@ BaseSectionList.defaultProps = {
   empty: null,
   footer: null,
   header: null,
-  renderSeparator: null,
-  renderItem: UTILS.noop,
-  renderSectionHeader: UTILS.noop,
-  sectionSeparator: UTILS.noop,
+  renderSeparator: undefined,
+  renderItem: undefined,
+  renderSectionHeader: undefined,
+  sectionSeparator: undefined,
   extraData: null,
   stickySectionHeadersEnabled: true
 };
