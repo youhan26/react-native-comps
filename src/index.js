@@ -1,75 +1,52 @@
 /**
  * Created by youhan on 2017/10/13.
  */
+//list
+import BaseList from './lists/BaseList';
+import BaseSectionList from './lists/BaseSectionList';
 
-module.exports = {
-  //list
-  get BaseList() {
-    return require('./lists/BaseList').default;
-  },
-  get BaseSectionList() {
-    return require('./lists/BaseSectionList').default;
-  },
-  
-  //separator
-  get LineSeparator() {
-    return require('./separator/LineSeparator').default;
-  },
-  get SectionSeparator() {
-    return require('./separator/SectionSeparator').default;
-  },
-  
-  
-  get RefreshControl() {
-    return require('./refreshControl/RefreshControl').default;
-  },
-  
-  // view
-  get Card() {
-    return require('./view/Card').default;
-  },
-  get KeyboardAvoidingScrollView() {
-    return require('./view/KeyboardAvoidingScrollView').default;
-  },
-  
-  //image
-  get Image() {
-    return require('./image/Image').default;
-  },
-  get Avatar() {
-    return require('./image/Avatar').default;
-  },
-  get ZoomImage() {
-    return require('./image/ZoomImage').default;
-  },
-  get AnimatedImage() {
-    return require('./image/AnimatedImage').default;
-  },
-  
-  
-  //headers
-  get FixHeader() {
-    return require('./headers/FixHeader').default;
-  },
-  
-  //color
-  get COLOR() {
-    return require('./asserts/colorConstant').default;
-  },
-  
-  
-  //Dropdown
-  get Dropdown() {
-    return require('./dropdown/Dropdown').default;
-  },
-  
-  //input
-  get InputWithLabel() {
-    return require('./input/InputWithLabel').default;
-  },
-  
-  //count
-  get CountNum() {
-    return require('./counter/CountNum').default;
-  }
+//separator
+import LineSeparator from './separator/LineSeparator';
+import SectionSeparator from './separator/SectionSeparator';
+
+// RefreshControl
+import RefreshControl from './refreshControl/RefreshControl';
+
+//card
+import Card from './view/Card';
+import KeyboardAvoidingScrollView from './view/KeyboardAvoidingScrollView';
+
+import Image from './image/Image';
+import Avatar from './image/Avatar';
+import ZoomImage from './image/ZoomImage';
+import AnimatedImage from './image/AnimatedImage';
+
+
+import FixHeader from './headers/FixHeader';
+
+import COLOR from './asserts/colorConstant';
+
+import Dropdown from './dropdown/Dropdown';
+
+import InputWithLabel from './input/InputWithLabel';
+
+import CountNum from './counter/CountNum';
+
+export {
+  BaseList,
+  BaseSectionList,
+  SectionSeparator,
+  LineSeparator,
+  RefreshControl,
+  Card,
+  KeyboardAvoidingScrollView,
+  Image,
+  Avatar,
+  ZoomImage,
+  AnimatedImage,
+  FixHeader,
+  COLOR,
+  Dropdown,
+  InputWithLabel,
+  CountNum,
 };

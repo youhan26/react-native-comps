@@ -84,6 +84,7 @@ BaseList.propTypes = {
   header: PropTypes.node,
   onLoad: PropTypes.func,
   renderSeparator: PropTypes.func,
+  renderItem: PropTypes.func,
   total: PropTypes.number,
 };
 
@@ -99,7 +100,12 @@ BaseList.defaultProps = {
   header: null,
   onLoad: UTILS.noop,
   total: 0,
-  renderSeparator: null
+  renderSeparator: () => {
+    return null;
+  },
+  renderItem: () => {
+    return null;
+  }
 };
 
 export default BaseList;
