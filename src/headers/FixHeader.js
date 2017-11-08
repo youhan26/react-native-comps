@@ -6,13 +6,12 @@ import PropTypes from 'prop-types';
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
-import IMAGE from '../../constants/images';
-import UTILS from '../../utils/index';
-import Separator from '../public/Separator';
+import LineSeparator from "../separator/LineSeparator";
+import IMAGE from "../asserts/imageConstant";
+import Image from "../image/Image";
 
 const styles = StyleSheet.create({
   root: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
 });
 
 const FixHeader = (props) => {
-  const {title, float, showSeparator} = props;
+  const {title, float, showSeparator, leftPress} = props;
   
   return (
     <View style={[styles.root, float ? styles.float : {}, props.style]}>
@@ -71,20 +70,21 @@ const FixHeader = (props) => {
       <View style={styles.left}>
         <TouchableOpacity
           onPress={() => {
-            UTILS.navigator.goBack();
+            leftPress && leftPress();
           }}
         >
           <View style={styles.leftWrap}>
-            <Image source={IMAGE.basic.left} />
+            <Image source={IMAGE.left} />
           </View>
         </TouchableOpacity>
       </View>
+      
       {props.right ?
         <View style={styles.right}>
           {props.right}
         </View> : null
       }
-      {showSeparator ? <Separator /> : null}
+      {showSeparator ? <LineSeparator /> : null}
     </View>
   );
 };
@@ -92,13 +92,15 @@ const FixHeader = (props) => {
 FixHeader.propTypes = {
   title: PropTypes.string,
   float: PropTypes.bool,
-  showSeparator: PropTypes.bool
+  showSeparator: PropTypes.bool,
+  leftPress: PropTypes.func,
 };
 
 FixHeader.defaultProps = {
   title: ' ',
   float: false,
-  showSeparator: false
+  showSeparator: false,
+  leftPress: undefined,
 };
 
 export default FixHeader;

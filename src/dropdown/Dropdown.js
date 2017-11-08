@@ -7,16 +7,14 @@ import PropTypes from 'prop-types';
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
   TouchableWithoutFeedback,
   Dimensions
 } from 'react-native';
-import Separator from './Separator';
-
-import IMAGE from '../../constants/images';
+import Image from "../image/Image";
+import IMAGE from "../asserts/imageConstant";
 
 const {height} = Dimensions.get('window');
 
@@ -168,8 +166,8 @@ export default class Dropdown extends Component {
       >
         <View style={styles.select}>
           <Text style={styles.selectText}>{this.state.name}</Text>
-          {this.state.show ? <Image source={IMAGE.basic.up} style={styles.icon} /> :
-            <Image source={IMAGE.basic.down} style={styles.icon} />}
+          {this.state.show ? <Image source={IMAGE.up} style={styles.icon} /> :
+            <Image source={IMAGE.down} style={styles.icon} />}
         </View>
       </TouchableOpacity>
     );

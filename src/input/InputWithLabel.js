@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class Input extends Component {
+class InputWithLabel extends Component {
   constructor(props) {
     super(props);
     
@@ -68,16 +68,16 @@ class Input extends Component {
   }
 }
 
-Input.propTypes = {
+InputWithLabel.propTypes = {
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node
   ]),
 };
 
-Input.defaultProps = {
+InputWithLabel.defaultProps = {
   label: ''
 };
 
-export default Input;
+export default InputWithLabel;
 

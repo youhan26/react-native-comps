@@ -3,40 +3,40 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, Image} from 'react-native';
-import CachedImage from 'react-native-cached-image';
-import BasicStyle from '../../utils/style';
+import {
+  ScrollView, Image,
+  StyleSheet
+} from 'react-native';
+import Image from "./Image";
 
-const ZoomImage = (props) => {
+const styles = StyleSheet.create({
+  root: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
+
+const ZoomImage = ({maximumZoomScale, minimumZoomScale, style, ...others}) => {
   return (
     <ScrollView
-      contentContainerStyle={BasicStyle.center()}
+      contentContainerStyle={[styles.root, style]}
       centerContent={true}
-      maximumZoomScale={props.maximumZoomScale}
-      minimumZoomScale={props.minimumZoomScale}
-      showsHorizontalScrollIndicator={props.showsHorizontalScrollIndicator}
-      showsVerticalScrollIndicator={props.showsVerticalScrollIndicator}
+      maximumZoomScale={maximumZoomScale}
+      minimumZoomScale={minimumZoomScale}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
     >
-      {props.useCache ?
-        <CachedImage {...props} /> :
-        <Image {...props} />
-      }
+      <Image {...others} style={style} />
     </ScrollView>
   );
 };
 
 ZoomImage.propTypes = {
-  useCache: PropTypes.bool,
-  showsHorizontalScrollIndicator: PropTypes.bool,
-  showsVerticalScrollIndicator: PropTypes.bool,
   maximumZoomScale: PropTypes.number,
   minimumZoomScale: PropTypes.number
 };
 
 ZoomImage.defaultProps = {
-  useCache: true,
-  showsHorizontalScrollIndicator: false,
-  showsVerticalScrollIndicator: false,
   maximumZoomScale: 3,
   minimumZoomScale: 1
 };

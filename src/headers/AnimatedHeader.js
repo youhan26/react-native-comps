@@ -12,9 +12,7 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native';
-import UTILS from '../../utils/index';
-import IMAGE from '../../constants/images';
-import Separator from '../public/Separator';
+import IMAGE from "../asserts/imageConstant";
 
 const {width} = Dimensions.get('window');
 
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
 });
 
 const AnimatedHeader = (props) => {
-  const {title, scrollY, scrollHeight} = props;
+  const {title, scrollY, scrollHeight, leftPress} = props;
   
   this.rootBg = scrollY.interpolate({
     inputRange: [0, scrollHeight],
@@ -92,14 +90,14 @@ const AnimatedHeader = (props) => {
       <Animated.View style={[styles.left]}>
         <TouchableOpacity
           onPress={() => {
-            UTILS.navigator.goBack();
+            leftPress && leftPress();
           }}
         >
           <Animated.View
             style={[styles.leftBg, {backgroundColor: this.leftBg}]}
           >
-            <Animated.Image source={IMAGE.basic.leftWhite} style={{opacity: this.down}} />
-            <Animated.Image source={IMAGE.basic.left} style={{opacity: this.up, position: 'absolute'}} />
+            <Animated.Image source={IMAGE.leftWhite} style={{opacity: this.down}} />
+            <Animated.Image source={IMAGE.left} style={{opacity: this.up, position: 'absolute'}} />
           </Animated.View>
         </TouchableOpacity>
       </Animated.View>
@@ -118,12 +116,14 @@ const AnimatedHeader = (props) => {
 
 AnimatedHeader.propTypes = {
   scrollHeight: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  leftPress: PropTypes.func,
 };
 
 AnimatedHeader.defaultProps = {
   scrollHeight: 250,
-  title: ' '
+  title: ' ',
+  leftPress: undefined,
 };
 
 export default AnimatedHeader;

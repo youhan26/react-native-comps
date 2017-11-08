@@ -65,7 +65,7 @@ CountBtn.defaultProps = {
 /**
  * CountNum
  */
-const CountNum = ({value, min, max, onChange}) => {
+const CountNum = ({value, min, max, onChange, style}) => {
   const minus = () => {
     if (value > min) {
       onChange(value - 1);
@@ -79,7 +79,7 @@ const CountNum = ({value, min, max, onChange}) => {
   };
   
   return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <View style={[{flexDirection: 'row', alignItems: 'center'}, style]}>
       <CountBtn
         text={'-'}
         onPress={minus}
