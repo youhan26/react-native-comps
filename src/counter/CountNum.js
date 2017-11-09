@@ -1,7 +1,7 @@
 /**
  * Created by youhan on 2017/9/4.
  */
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   View,

@@ -7,7 +7,6 @@ export const Row = ({style, ...others}) => {
   );
 };
 
-
 export const Col = ({style, ...others}) => {
   return (
     <View style={[styles.col, style]} {...others} />
@@ -21,6 +20,8 @@ const styles = StyleSheet.create({
   },
   col: {
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 });

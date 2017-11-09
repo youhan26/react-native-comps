@@ -32,6 +32,10 @@ import InputWithLabel from './input/InputWithLabel';
 
 import CountNum from './counter/CountNum';
 
+import IMAGE from './asserts/imageConstant';
+
+import {Row, Col} from './view/Layout';
+
 export {
   BaseList,
   BaseSectionList,
@@ -49,4 +53,7 @@ export {
   Dropdown,
   InputWithLabel,
   CountNum,
+  IMAGE,
+  Row,
+  Col,
 };

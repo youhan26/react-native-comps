@@ -2,7 +2,7 @@
  * Created by youhan on 2017/9/4.
  */
 
-export const COLOR = {
+const COLOR = {
   price: '#ff6565',
   redSelect: '#ff2335',
   
@@ -25,3 +25,6 @@ export const COLOR = {
   bgff233d: '#ff233d',
   bgb6: '#b6b6b6',
 };
+
+
+export default COLOR;

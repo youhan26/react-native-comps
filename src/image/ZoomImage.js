@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  ScrollView, Image,
+  ScrollView,
   StyleSheet
 } from 'react-native';
 import Image from "./Image";

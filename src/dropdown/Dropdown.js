@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import Image from "../image/Image";
 import IMAGE from "../asserts/imageConstant";
+import LineSeparator from "../separator/LineSeparator";
 
 const {height} = Dimensions.get('window');
 
@@ -176,7 +177,7 @@ export default class Dropdown extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <View style={styles.title}>
+        <View style={styles.tittle}>
           {this.renderSelectable()}
           {this.props.right}
         </View>
@@ -187,7 +188,7 @@ export default class Dropdown extends Component {
             }}
           >
             <View style={styles.hiddenContainer}>
-              <Separator />
+              <LineSeparator />
               {this.renderList()}
             </View>
           </TouchableWithoutFeedback>

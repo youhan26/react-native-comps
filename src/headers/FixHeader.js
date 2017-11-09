@@ -64,7 +64,7 @@ const FixHeader = (props) => {
   return (
     <View style={[styles.root, float ? styles.float : {}, props.style]}>
       <View style={styles.container}>
-        <Text style={styles.title} numberOfLines={1}>{title}</Text>
+        <Text style={styles.tittle} numberOfLines={1}>{title}</Text>
       </View>
       
       <View style={styles.left}>
@@ -94,6 +94,7 @@ FixHeader.propTypes = {
   float: PropTypes.bool,
   showSeparator: PropTypes.bool,
   leftPress: PropTypes.func,
+  right: PropTypes.node,
 };
 
 FixHeader.defaultProps = {
@@ -101,6 +102,7 @@ FixHeader.defaultProps = {
   float: false,
   showSeparator: false,
   leftPress: undefined,
+  right: undefined
 };
 
 export default FixHeader;

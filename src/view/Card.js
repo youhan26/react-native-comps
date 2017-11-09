@@ -7,15 +7,14 @@ import {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: 'white',
-    flexDirection: 'row',
-    alignItems: 'center',
     height: 90,
+    margin: 6,
     shadowColor: '#88530d',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 0
     },
-    shadowOpacity: 0.1
+    shadowOpacity: 0.3
   }
 });
 

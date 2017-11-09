@@ -10,7 +10,7 @@ import {
   TextInput,
   StyleSheet,
 } from 'react-native';
-import {COLOR} from "../asserts/colorConstant";
+import COLOR from "../asserts/colorConstant";
 
 const styles = StyleSheet.create({
   root: {
@@ -48,11 +48,11 @@ class InputWithLabel extends Component {
   }
   
   render() {
-    const {label, ...others} = this.props;
+    const {label, style, ...others} = this.props;
     
     return (
       <View
-        style={[styles.root, {borderBottomColor: this.state.focus ? COLOR.redSelect : COLOR.bgb6}]}
+        style={[styles.root, {borderBottomColor: this.state.focus ? COLOR.redSelect : COLOR.bgb6}, style]}
         behavior={'padding'}
       >
         <Text style={[styles.text, {width: 60}]}>{label}</Text>

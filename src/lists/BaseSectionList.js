@@ -85,7 +85,7 @@ class BaseSectionList extends PureComponent {
 BaseSectionList.propTypes = {
   sections: PropTypes.arrayOf(PropTypes.shape({
     data: PropTypes.array,
-    title: PropTypes.string
+    tittle: PropTypes.string
   })).isRequired,
   
   initLoad: PropTypes.bool,
