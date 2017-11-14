@@ -177,7 +177,7 @@ export default class Dropdown extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <View style={styles.tittle}>
+        <View style={styles.title}>
           {this.renderSelectable()}
           {this.props.right}
         </View>
