@@ -209,10 +209,12 @@ Dropdown.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   blank: PropTypes.string.isRequired,
+  right: PropTypes.node
 };
 
 Dropdown.defaultProps = {
   data: [],
   onChange: () => {},
-  value: ''
+  value: '',
+  right: null
 };
