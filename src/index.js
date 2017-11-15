@@ -36,6 +36,8 @@ import IMAGE from './asserts/imageConstant';
 
 import {Row, Col} from './view/Layout';
 
+import Button from './button/Button';
+
 export {
   BaseList,
   BaseSectionList,
@@ -56,4 +58,5 @@ export {
   IMAGE,
   Row,
   Col,
+  Button
 };
