@@ -38,6 +38,8 @@ import {Row, Col} from './view/Layout';
 
 import Button from './button/Button';
 
+import Icon from './icons/Icon';
+
 export {
   BaseList,
   BaseSectionList,
@@ -58,5 +60,6 @@ export {
   IMAGE,
   Row,
   Col,
-  Button
+  Button,
+  Icon
 };
