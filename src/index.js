@@ -28,6 +28,7 @@ import COLOR from './asserts/colorConstant';
 
 import Dropdown from './dropdown/Dropdown';
 
+import Input from './input/Input';
 import InputWithLabel from './input/InputWithLabel';
 
 import CountNum from './counter/CountNum';
@@ -39,6 +40,7 @@ import {Row, Col} from './view/Layout';
 import Button from './button/Button';
 
 import Icon from './icons/Icon';
+import TouchableIcon from './icons/TouchableIcon';
 
 export {
   BaseList,
@@ -55,11 +57,13 @@ export {
   FixHeader,
   COLOR,
   Dropdown,
+  Input,
   InputWithLabel,
   CountNum,
   IMAGE,
   Row,
   Col,
   Button,
-  Icon
+  Icon,
+  TouchableIcon
 };
