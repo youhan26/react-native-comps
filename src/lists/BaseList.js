@@ -26,6 +26,14 @@ class BaseList extends PureComponent {
     }
   }
   
+  setNativeProps(props) {
+    this.ref.setNativeProps(props);
+  }
+  
+  getScrollResponder() {
+    return this.ref.getScrollResponder();
+  }
+  
   load(isPull) {
     const {total, data, loading} = this.props;
     if (loading) {
@@ -47,7 +55,7 @@ class BaseList extends PureComponent {
   }
   
   render() {
-    const {renderSeparator, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
+    const {renderSeparator, viewRef, data, empty, loading, footer, header, keyExtractor, ...others} = this.props;
     
     return (
       <FlatList
@@ -69,6 +77,10 @@ class BaseList extends PureComponent {
         ListFooterComponent={footer}
         ListHeaderComponent={header}
         {...others}
+        ref={(ref) => {
+          this.ref = ref;
+          viewRef && viewRef(ref);
+        }}
       />
     );
   }
@@ -85,6 +97,7 @@ BaseList.propTypes = {
   onLoad: PropTypes.func,
   renderSeparator: PropTypes.func,
   renderItem: PropTypes.func,
+  viewRef: PropTypes.func,
   total: PropTypes.number,
 };
 
@@ -105,6 +118,9 @@ BaseList.defaultProps = {
   },
   renderItem: () => {
     return null;
+  },
+  viewRef: () => {
+  
   }
 };
 
