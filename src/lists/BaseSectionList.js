@@ -18,12 +18,22 @@ class BaseSectionList extends PureComponent {
     this.onEndReach = this.onEndReach.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
     this.load = this.load.bind(this);
+    this.setNativeProps = this.setNativeProps.bind(this);
+    this.getScrollResponder = this.getScrollResponder.bind(this);
   }
   
   componentDidMount() {
     if (this.props.initLoad) {
       this.load(false);
     }
+  }
+  
+  setNativeProps(props) {
+    this.ref.setNativeProps(props);
+  }
+  
+  getScrollResponder() {
+    return this.ref.getScrollResponder();
   }
   
   load(isPull) {
@@ -77,6 +87,11 @@ class BaseSectionList extends PureComponent {
         SectionSeparatorComponent={sectionSeparator}
         sections={sections}
         {...others}
+        ref={(ref) => {
+          if (ref) {
+            this.ref = ref;
+          }
+        }}
       />
     );
   }

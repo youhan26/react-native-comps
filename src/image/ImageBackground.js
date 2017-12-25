@@ -2,9 +2,9 @@
  * Created by youhan on 2017/9/27.
  */
 import React from 'react';
-import {Image as BaseImage, View, StyleSheet, Text, ActivityIndicator} from 'react-native';
+import {ImageBackground as BaseImage, View, StyleSheet, Text, ActivityIndicator} from 'react-native';
 
-class Image extends React.PureComponent {
+class ImageBackground extends React.PureComponent {
   constructor(props) {
     super(props);
     
@@ -64,7 +64,9 @@ class Image extends React.PureComponent {
           onLoad={this.onLoad}
           onLoadStart={this.onLoadStart}
           onLoadEnd={this.onLoadEnd}
-        />
+        >
+          {this.props.children}
+        </BaseImage>
         {(error || loading) ?
           <View style={[styles.image, styles.view, style]}>
             {error ? <Text>加载失败</Text> : null}
@@ -100,4 +102,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Image;
+export default ImageBackground;

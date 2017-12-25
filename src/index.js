@@ -17,6 +17,7 @@ import Card from './view/Card';
 import KeyboardAvoidingScrollView from './view/KeyboardAvoidingScrollView';
 
 import Image from './image/Image';
+import ImageBackground from './image/ImageBackground';
 import Avatar from './image/Avatar';
 import ZoomImage from './image/ZoomImage';
 import AnimatedImage from './image/AnimatedImage';
@@ -51,6 +52,7 @@ export {
   Card,
   KeyboardAvoidingScrollView,
   Image,
+  ImageBackground,
   Avatar,
   ZoomImage,
   AnimatedImage,

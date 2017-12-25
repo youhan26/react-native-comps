@@ -18,11 +18,20 @@ class BaseList extends PureComponent {
     this.onEndReach = this.onEndReach.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
     this.load = this.load.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
+    this.setNativeProps = this.setNativeProps.bind(this);
+    this.getScrollResponder = this.getScrollResponder.bind(this);
   }
   
   componentDidMount() {
     if (this.props.initLoad) {
       this.load(false);
+    }
+  }
+  
+  scrollTo(option){
+    if(this.ref){
+      this.ref.scrollToOffset(option);
     }
   }
   
