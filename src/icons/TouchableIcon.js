@@ -25,6 +25,7 @@ TouchableIcon.propTypes = {
   onPress: PropTypes.func,
   disabled: PropTypes.bool,
   size: PropTypes.number,
+  name: PropTypes.string.isRequired,
   style: View.propTypes.style,
   iconStyle: View.propTypes.style,
 };

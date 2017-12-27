@@ -37,8 +37,6 @@ Icon.propTypes = {
     'more',
     'search',
     'location',
-    'phone',
-    'time',
     'selected',
     'emoji',
     'share',

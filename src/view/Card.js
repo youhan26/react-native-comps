@@ -7,8 +7,9 @@ import {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: 'white',
-    height: 90,
+    minHeight: 90,
     margin: 6,
+    paddingBottom: 6,
     shadowColor: '#88530d',
     shadowOffset: {
       width: 0,

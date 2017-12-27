@@ -15,8 +15,6 @@ const IMAGE = {
   more: require('../../images/more.png'),
   search: require('../../images/search.png'),
   location: require('../../images/location.png'),
-  phone: require('../../images/phone.png'),
-  time: require('../../images/time.png'),
   selected: require('../../images/selected.png'),
   emoji: require('../../images/emoji.png'),
   share: require('../../images/share.png'),
