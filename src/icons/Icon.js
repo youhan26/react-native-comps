@@ -27,6 +27,7 @@ Icon.propTypes = {
     'right',
     'up',
     'down',
+    'copy',
     'scan',
     'female',
     'male',
@@ -35,6 +36,7 @@ Icon.propTypes = {
     'remove',
     'clean',
     'more',
+    'more-c',
     'search',
     'location',
     'selected',
@@ -42,11 +44,13 @@ Icon.propTypes = {
     'share',
     'bookmark',
     'social-moments',
+    'social-moments-c',
     'social-wechat',
     'social-qq',
     'social-alipay',
     'social-weibo',
     'social-wechat-s',
+    'social-wechat-c',
   ])
 };
 
