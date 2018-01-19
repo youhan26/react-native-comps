@@ -17,6 +17,7 @@ class Image extends React.PureComponent {
     this.onLoad = this.onLoad.bind(this);
     this.onLoadStart = this.onLoadStart.bind(this);
     this.onLoadEnd = this.onLoadEnd.bind(this);
+    this.setNativeProps = this.setNativeProps.bind(this);
   }
   
   onError() {
@@ -46,6 +47,10 @@ class Image extends React.PureComponent {
     });
   }
   
+  setNativeProps(props) {
+    this.ref && this.ref.setNativeProps(props);
+  }
+  
   render() {
     const {source, style, resizeMode, ...others} = this.props;
     if (!source || (typeof source === 'object' && (!source.uri))) {
@@ -54,7 +59,14 @@ class Image extends React.PureComponent {
     const {error, loading} = this.state;
     
     return (
-      <View style={[styles.image, style]}>
+      <View
+        style={[styles.image, style]}
+        ref={(ref) => {
+          if (ref) {
+            this.ref = ref;
+          }
+        }}
+      >
         <BaseImage
           {...others}
           source={source}
@@ -83,9 +95,7 @@ class Image extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-  image: {
-  
-  },
+  image: {},
   view: {
     flexDirection: 'row',
     alignItems: 'center',

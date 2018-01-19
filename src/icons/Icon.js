@@ -6,18 +6,36 @@ import {
 import Image from '../image/Image';
 import IMAGE from "../asserts/imageConstant";
 
-const Icon = ({name, ...others}) => {
-  if (!name) {
-    return <Text>?</Text>
+
+class Icon extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  
+    this.setNativeProps = this.setNativeProps.bind(this);
   }
   
-  return (
-    <Image
-      source={IMAGE[name]}
-      {...others}
-    />
-  );
-};
+  setNativeProps(props){
+    this.ref && this.ref.setNativeProps(props);
+  }
+  
+  render() {
+    const {name, ...others} = this.props;
+    
+    if (!name) {
+      return <Text>?</Text>
+    }
+    
+    return (
+      <Image
+        source={IMAGE[name]}
+        {...others}
+        ref={(ref) => {
+          this.ref = ref;
+        }}
+      />
+    );
+  }
+}
 
 
 Icon.propTypes = {
@@ -42,6 +60,7 @@ Icon.propTypes = {
     'selected',
     'emoji',
     'share',
+    'share-white',
     'bookmark',
     'social-moments',
     'social-moments-c',
