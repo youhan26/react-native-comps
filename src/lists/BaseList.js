@@ -15,6 +15,10 @@ class BaseList extends PureComponent {
   constructor(props) {
     super(props);
     
+    this.state = {
+      allowLoad: true
+    };
+    
     this.onEndReach = this.onEndReach.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
     this.load = this.load.bind(this);
@@ -29,8 +33,8 @@ class BaseList extends PureComponent {
     }
   }
   
-  scrollTo(option){
-    if(this.ref){
+  scrollTo(option) {
+    if (this.ref) {
       this.ref.scrollToOffset(option);
     }
   }
@@ -44,6 +48,11 @@ class BaseList extends PureComponent {
   }
   
   load(isPull) {
+    const {allowLoad} = this.state;
+    if (!allowLoad) {
+      return;
+    }
+    
     const {total, data, loading} = this.props;
     if (loading) {
       return;
@@ -52,7 +61,8 @@ class BaseList extends PureComponent {
       return;
     }
     
-    this.props.onLoad(isPull)
+    this.props.onLoad(isPull);
+    this.setState({allowLoad: false});
   }
   
   onEndReach() {
@@ -74,6 +84,9 @@ class BaseList extends PureComponent {
             onRefresh={this.onRefresh}
           />
         }
+        onContentSizeChange={() => {
+          this.setState({allowLoad: true});
+        }}
         data={data}
         initialNumToRender={1}
         keyExtractor={keyExtractor}

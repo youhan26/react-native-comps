@@ -15,6 +15,8 @@ class BaseSectionList extends PureComponent {
   constructor(props) {
     super(props);
     
+    this.state = {allowLoad: true};
+    
     this.onEndReach = this.onEndReach.bind(this);
     this.onRefresh = this.onRefresh.bind(this);
     this.load = this.load.bind(this);
@@ -37,6 +39,12 @@ class BaseSectionList extends PureComponent {
   }
   
   load(isPull) {
+    const {allowLoad} = this.state;
+    if (!allowLoad) {
+      return;
+    }
+    
+    
     const {total, sections, loading} = this.props;
     if (loading) {
       return;
@@ -49,6 +57,7 @@ class BaseSectionList extends PureComponent {
     }
     
     this.props.onLoad(isPull);
+    this.setState({allowLoad: false});
   }
   
   onEndReach() {
@@ -74,6 +83,9 @@ class BaseSectionList extends PureComponent {
             onRefresh={this.onRefresh}
           />
         }
+        onContentSizeChange={() => {
+          this.setState({allowLoad: true});
+        }}
         initialNumToRender={1}
         keyExtractor={keyExtractor}
         onEndReached={this.onEndReach}
