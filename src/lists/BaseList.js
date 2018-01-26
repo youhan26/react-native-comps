@@ -49,7 +49,7 @@ class BaseList extends PureComponent {
   
   load(isPull) {
     const {allowLoad} = this.state;
-    if (!allowLoad) {
+    if (!allowLoad && !isPull) {
       return;
     }
     
