@@ -46,6 +46,7 @@ Icon.propTypes = {
     'up',
     'down',
     'copy',
+    'close',
     'scan',
     'female',
     'male',

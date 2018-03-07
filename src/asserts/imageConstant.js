@@ -12,6 +12,7 @@ const IMAGE = {
   message: require('../../images/message.png'),
   remove: require('../../images/remove.png'),
   clean: require('../../images/clean.png'),
+  close: require('../../images/close.png'),
   more: require('../../images/more.png'),
   copy: require('../../images/copy.png'),
   'more-c': require('../../images/more-c.png'),
