@@ -26,6 +26,8 @@ const COLOR = {
   bgb6: '#b6b6b6',
   bg25cbaa: '#25cbaa',
   bgc7c7c7: '#c7c7c7',
+  bgc859FFE: '#859FFE',
+  bgc5C75F3: '#5C75F3',
 };
 
 
