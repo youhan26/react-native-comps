@@ -16,6 +16,7 @@ const COLOR = {
   titlef9ae07: '#f9ae07',
   title5c76f2: '#5c76f2',
   title859fff: '#859fff',
+  title5474E8: '#5474E8',
   
   
   bgf4: '#f4f4f4',
