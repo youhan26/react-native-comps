@@ -58,6 +58,15 @@ class Image extends React.PureComponent {
     }
     const {error, loading} = this.state;
     
+    
+    if(error){
+      return (
+        <View style={[styles.image, styles.view, style]}>
+          <Text>加载失败</Text>
+        </View>
+      );
+    }
+    
     return (
       <View
         style={[styles.image, style]}
@@ -77,16 +86,12 @@ class Image extends React.PureComponent {
           onLoadStart={this.onLoadStart}
           onLoadEnd={this.onLoadEnd}
         />
-        {(error || loading) ?
+        {loading ?
           <View style={[styles.image, styles.view, style]}>
-            {error ? <Text>加载失败</Text> : null}
-            {loading ?
-              <ActivityIndicator
-                animating={true}
-                size={'small'}
-              />
-              : null
-            }
+            <ActivityIndicator
+              animating={true}
+              size={'small'}
+            />
           </View> : null
         }
       </View>
