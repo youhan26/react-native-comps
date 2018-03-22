@@ -18,6 +18,7 @@ const IMAGE = {
   'more-c': require('../../images/more-c.png'),
   search: require('../../images/search.png'),
   location: require('../../images/location.png'),
+  'location-small': require('../../images/location-small.png'),
   selected: require('../../images/selected.png'),
   emoji: require('../../images/emoji.png'),
   share: require('../../images/share.png'),
@@ -31,6 +32,7 @@ const IMAGE = {
   'social-alipay': require('../../images/social-alipay.png'),
   'social-weibo': require('../../images/social-weibo.png'),
   'social-wechat-s': require('../../images/social-wechat-s.png'),
+  'phone': require('../../images/phone.png'),
 };
 
 export default IMAGE;
