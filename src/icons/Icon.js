@@ -21,7 +21,7 @@ class Icon extends React.PureComponent {
   render() {
     const {name, ...others} = this.props;
     
-    if (!name) {
+    if (!name && !source) {
       return <Text>?</Text>
     }
     
