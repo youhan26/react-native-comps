@@ -8,6 +8,7 @@
 .lock-wscript
 .svn
 .wafpickle-*
+.idea/
 config.gypi
 CVS
 npm-debug.log

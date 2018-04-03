@@ -19,7 +19,7 @@ class Icon extends React.PureComponent {
   }
   
   render() {
-    const {name, ...others} = this.props;
+    const {name, source, ...others} = this.props;
     
     if (!name && !source) {
       return <Text>?</Text>
@@ -73,6 +73,8 @@ Icon.propTypes = {
     'social-weibo',
     'social-wechat-s',
     'social-wechat-c',
+    'pencil',
+    'can',
   ])
 };
 

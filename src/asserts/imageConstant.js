@@ -33,6 +33,9 @@ const IMAGE = {
   'social-weibo': require('../../images/social-weibo.png'),
   'social-wechat-s': require('../../images/social-wechat-s.png'),
   'phone': require('../../images/phone.png'),
+  can : require('../../images/can.png'),
+  pencil: require('../../images/pencil.png'),
+  
 };
 
 export default IMAGE;
