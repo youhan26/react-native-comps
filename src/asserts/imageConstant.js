@@ -35,6 +35,7 @@ const IMAGE = {
   'phone': require('../../images/phone.png'),
   can : require('../../images/can.png'),
   pencil: require('../../images/pencil.png'),
+  'location-white-small': require('../../images/location-white-small.png'),
   
 };
 

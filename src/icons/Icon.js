@@ -75,6 +75,7 @@ Icon.propTypes = {
     'social-wechat-c',
     'pencil',
     'can',
+    'location-white-small',
   ])
 };
 
