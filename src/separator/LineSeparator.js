@@ -11,10 +11,7 @@ const LineSeparator = ({style, color}) => {
 
 LineSeparator.propTypes = {
   color: PropTypes.string,
-  style: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.number,
-  ])
+  style: View.propTypes.style,
 };
 
 LineSeparator.defaultProps = {
