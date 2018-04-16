@@ -36,7 +36,7 @@ const IMAGE = {
   can : require('../../images/can.png'),
   pencil: require('../../images/pencil.png'),
   'location-white-small': require('../../images/location-white-small.png'),
-  
+  cart: require('../../images/cart.png'),
 };
 
 export default IMAGE;

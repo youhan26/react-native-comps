@@ -76,6 +76,7 @@ Icon.propTypes = {
     'pencil',
     'can',
     'location-white-small',
+    'cart',
   ])
 };
 
