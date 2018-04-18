@@ -52,7 +52,7 @@ class Image extends React.PureComponent {
   }
   
   render() {
-    const {source, style, resizeMode, ...others} = this.props;
+    const {source, style, containerStyle, resizeMode, ...others} = this.props;
     if (!source || (typeof source === 'object' && (!source.uri))) {
       return <View style={style} />;
     }
@@ -69,7 +69,7 @@ class Image extends React.PureComponent {
     
     return (
       <View
-        style={[styles.image, style]}
+        style={[styles.image, containerStyle]}
         ref={(ref) => {
           if (ref) {
             this.ref = ref;
@@ -98,6 +98,12 @@ class Image extends React.PureComponent {
     );
   }
 }
+
+Image.propTypes = {
+  containerStyle: View.propTypes.style,
+  style: BaseImage.propTypes.style,
+  resizeMode: BaseImage.propTypes.resizeMode,
+};
 
 const styles = StyleSheet.create({
   image: {},

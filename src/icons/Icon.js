@@ -77,6 +77,7 @@ Icon.propTypes = {
     'can',
     'location-white-small',
     'cart',
+    'cart_red',
   ])
 };
 
