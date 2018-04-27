@@ -1,7 +1,7 @@
 /**
  * Created by youhan on 2017/10/13.
  */
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import UTILS from 'mimikiy-utils';
 
-class BaseList extends PureComponent {
+class BaseList extends Component {
   constructor(props) {
     super(props);
     
