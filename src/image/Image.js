@@ -52,14 +52,14 @@ class Image extends React.PureComponent {
   }
   
   render() {
-    const {source, style, containerStyle, resizeMode, ...others} = this.props;
+    const {source, style, containerStyle, resizeMode, showLoading, ...others} = this.props;
     if (!source || (typeof source === 'object' && (!source.uri))) {
       return <View style={style} />;
     }
     const {error, loading} = this.state;
     
     
-    if(error){
+    if (error) {
       return (
         <View style={[styles.image, styles.view, style]}>
           <Text>加载失败</Text>
@@ -86,7 +86,7 @@ class Image extends React.PureComponent {
           onLoadStart={this.onLoadStart}
           onLoadEnd={this.onLoadEnd}
         />
-        {loading ?
+        {showLoading && loading ?
           <View style={[styles.image, styles.view, style]}>
             <ActivityIndicator
               animating={true}
@@ -103,6 +103,11 @@ Image.propTypes = {
   containerStyle: View.propTypes.style,
   style: BaseImage.propTypes.style,
   resizeMode: BaseImage.propTypes.resizeMode,
+  showLoading: PropTypes.bool,
+};
+
+Image.defaultProps = {
+  showLoading: false,
 };
 
 const styles = StyleSheet.create({
