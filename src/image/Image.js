@@ -2,6 +2,7 @@
  * Created by youhan on 2017/9/27.
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Image as BaseImage, View, StyleSheet, Text, ActivityIndicator} from 'react-native';
 
 class Image extends React.PureComponent {

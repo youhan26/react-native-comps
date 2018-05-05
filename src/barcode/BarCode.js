@@ -1,6 +1,6 @@
-'use strict';
-import React, { Component, PropTypes } from 'react';
-import { View, WebView }  from 'react-native';
+import React, { Component } from 'react';
+import { View, WebView, Text }  from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class BarCode extends Component {
   render() {
@@ -29,7 +29,6 @@ export default class BarCode extends Component {
               ctx.msBackingStorePixelRatio ||
               ctx.oBackingStorePixelRatio ||
               ctx.backingStorePixelRatio || 1;
-
               return dpr / bsr;
           })();
            var canvas = document.querySelector('canvas');
@@ -65,4 +64,3 @@ BarCode.defaultProps = {
   width: 225,
   height: 90
 }
-

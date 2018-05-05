@@ -11,6 +11,7 @@ import SectionSeparator from './separator/SectionSeparator';
 
 // RefreshControl
 import RefreshControl from './refreshControl/RefreshControl';
+import BarCode from './barcode/BarCode';
 
 //card
 import Card from './view/Card';
@@ -67,5 +68,6 @@ export {
   Col,
   Button,
   Icon,
-  TouchableIcon
+  TouchableIcon,
+  BarCode
 };
