@@ -71,7 +71,9 @@ class DropDownNotice extends PureComponent {
         </View>
         <View style={styles.right}>
           <Text style={{color: 'white', fontSize: 19}}>{title}</Text>
-          <Text style={{color: 'white', fontSize: 14, marginTop: 5}}>{subTitle}</Text>
+          {subTitle ?
+            <Text style={{color: 'white', fontSize: 14, marginTop: 5}}>{subTitle}</Text> : null
+          }
         </View>
       </Animated.View>
     );

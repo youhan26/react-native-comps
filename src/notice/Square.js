@@ -63,11 +63,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 14
+    fontSize: 14,
+    textAlign: 'center'
   },
   subTitle: {
     color: 'white',
     fontSize: 12,
-    marginTop: 5
+    marginTop: 5,
+    textAlign: 'center'
   }
 });
