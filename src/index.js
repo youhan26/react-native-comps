@@ -44,6 +44,9 @@ import Button from './button/Button';
 import Icon from './icons/Icon';
 import TouchableIcon from './icons/TouchableIcon';
 
+import Notice from "./notice/Notice";
+import NoticeView from "./notice/NoticeView";
+
 export {
   BaseList,
   BaseSectionList,
@@ -69,5 +72,8 @@ export {
   Button,
   Icon,
   TouchableIcon,
-  BarCode
+  BarCode,
+  
+  Notice,
+  NoticeView
 };
