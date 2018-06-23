@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   StyleSheet,
-  View
+  View,
+  ViewPropTypes
 } from 'react-native';
 import Icon from "./Icon";
 
@@ -26,8 +27,8 @@ TouchableIcon.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.number,
   name: PropTypes.string.isRequired,
-  style: View.propTypes.style,
-  iconStyle: View.propTypes.style,
+  style: ViewPropTypes.style,
+  iconStyle: ViewPropTypes.style,
 };
 
 TouchableIcon.defaultProps = {

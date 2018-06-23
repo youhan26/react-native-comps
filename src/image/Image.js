@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Image as BaseImage, View, StyleSheet, Text, ActivityIndicator} from 'react-native';
+import {Image as BaseImage, View, ViewPropTypes, StyleSheet, Text, ActivityIndicator} from 'react-native';
 
 class Image extends React.PureComponent {
   constructor(props) {
@@ -101,7 +101,7 @@ class Image extends React.PureComponent {
 }
 
 Image.propTypes = {
-  containerStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes.style,
   style: BaseImage.propTypes.style,
   resizeMode: BaseImage.propTypes.resizeMode,
   showLoading: PropTypes.bool,

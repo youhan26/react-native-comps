@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ViewPropTypes} from 'react-native';
 
 const LineSeparator = ({style, color}) => {
   return <View style={[{borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: color}, style]} />;
@@ -11,7 +11,7 @@ const LineSeparator = ({style, color}) => {
 
 LineSeparator.propTypes = {
   color: PropTypes.string,
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
 };
 
 LineSeparator.defaultProps = {

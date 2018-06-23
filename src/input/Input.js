@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   TextInput,
-  Text, TouchableOpacity
+  Text, TouchableOpacity,
+  ViewPropTypes
 } from 'react-native';
 import COLOR from "../asserts/colorConstant";
 
@@ -103,7 +104,7 @@ class Input extends PureComponent {
 
 Input.propTypes = {
   showBottom: PropTypes.bool,
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   inputStyle: TextInput.propTypes.style,
   labelStyle: Text.propTypes.style,
   showClear: PropTypes.bool,
