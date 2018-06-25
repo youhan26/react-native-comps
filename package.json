@@ -1,6 +1,6 @@
 {
   "name": "react-native-comps",
-  "version": "0.47.0",
+  "version": "0.48.0",
   "main": "src/index.js",
   "repository": "https://github.com/YouHan26/react-native-comps.git",
   "author": "Han You <youhan26@gmail.com>",
@@ -10,6 +10,7 @@
     "react-native": ">=0.47"
   },
   "dependencies": {
+    "mi-js-utils": "^2.1.0",
     "mimikiy-utils": "^1.0.0",
     "prop-types": "^15.6.0"
   }
