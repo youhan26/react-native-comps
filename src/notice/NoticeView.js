@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import {DeviceEventEmitter} from 'react-native';
-import autobind from 'autobind-decorator';
 import SquareNoticeWithBlock from "./SquareNoticeWithBlock";
 import DropDownNotice from "./DropDownNotice";
 import {noticeComponent} from "./Notice";
@@ -19,6 +18,9 @@ class NoticeView extends PureComponent {
       showDropDown: false,
       interval: 0,
     };
+  
+    this.closeNotice = this.closeNotice.bind(this);
+    this.showNotice = this.showNotice.bind(this);
   }
   
   componentDidMount() {
@@ -31,12 +33,10 @@ class NoticeView extends PureComponent {
     DeviceEventEmitter.removeAllListeners('$notice-close');
   }
   
-  @autobind
   closeNotice() {
     this.setState({showNotice: false, data: null});
   }
   
-  @autobind
   showNotice(options) {
     const {data, interval} = options;
   
