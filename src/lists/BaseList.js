@@ -9,7 +9,7 @@ import {
   StyleSheet,
   RefreshControl
 } from 'react-native';
-import UTILS from 'mimikiy-utils';
+import UTILS from 'mi-js-utils';
 
 class BaseList extends PureComponent {
   constructor(props) {
@@ -133,7 +133,7 @@ BaseList.defaultProps = {
   empty: null,
   footer: null,
   header: null,
-  onLoad: UTILS.noop,
+  onLoad: UTILS.common.noop,
   total: 0,
   renderSeparator: () => {
     return null;

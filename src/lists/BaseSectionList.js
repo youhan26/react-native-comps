@@ -9,7 +9,7 @@ import {
   StyleSheet,
   RefreshControl
 } from 'react-native';
-import UTILS from 'mimikiy-utils';
+import UTILS from 'mi-js-utils';
 
 class BaseSectionList extends PureComponent {
   constructor(props) {
@@ -139,7 +139,7 @@ BaseSectionList.defaultProps = {
     return item.key;
   },
   sections: [],
-  onLoad: UTILS.noop,
+  onLoad: UTILS.common.noop,
   total: 0,
   
   empty: null,
