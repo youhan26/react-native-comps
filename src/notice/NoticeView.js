@@ -52,7 +52,7 @@ class NoticeView extends PureComponent {
         }
       }, interval);
     }
-    
+  
     this.setState({showNotice: true, data, interval});
   }
   
