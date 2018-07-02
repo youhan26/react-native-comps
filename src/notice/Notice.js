@@ -22,9 +22,10 @@ export default class Notice {
      * @param data
      * @param type
      * @param interval
+     * @param callback
      */
-    show: (data, type, interval) => {
-      Notice.show(noticeComponent.dropDown, type, data, interval);
+    show: (data, type, interval, callback) => {
+      Notice.show(noticeComponent.dropDown, type, data, interval, callback);
     },
     close: () => {
       Notice.close();
@@ -35,9 +36,10 @@ export default class Notice {
      * @param data
      * @param type
      * @param interval
+     * @param callback
      */
-    show: (data, type, interval) => {
-      Notice.show(noticeComponent.square, type, data, interval);
+    show: (data, type, interval, callback) => {
+      Notice.show(noticeComponent.square, type, data, interval, callback);
     },
     close: () => {
       Notice.close();
@@ -48,9 +50,10 @@ export default class Notice {
      * @param data
      * @param type
      * @param interval
+     * @param callback
      */
-    show: (data, type, interval) => {
-      Notice.show(noticeComponent.global_square, type, data, interval);
+    show: (data, type, interval, callback) => {
+      Notice.show(noticeComponent.global_square, type, data, interval, callback);
     },
     close: () => {
       Notice.close();
@@ -64,13 +67,15 @@ export default class Notice {
    * @param subTitle
    * @param icon
    * @param interval
+   * @param callback
    */
-  static show(type, noticeType, {title, subTitle, icon}, interval = 0){
+  static show(type, noticeType, {title, subTitle, icon}, interval = 0, callback){
     DeviceEventEmitter.emit('$notice-show', {
       data: {
         type, title, subTitle, icon, noticeType
       },
       interval,
+      callback
     });
   }
   static close(){

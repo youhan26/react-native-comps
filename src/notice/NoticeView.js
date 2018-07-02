@@ -18,7 +18,7 @@ class NoticeView extends PureComponent {
       showDropDown: false,
       interval: 0,
     };
-  
+    
     this.closeNotice = this.closeNotice.bind(this);
     this.showNotice = this.showNotice.bind(this);
   }
@@ -38,8 +38,8 @@ class NoticeView extends PureComponent {
   }
   
   showNotice(options) {
-    const {data, interval} = options;
-  
+    const {data, interval, callback} = options;
+    
     if (this.interval) {
       clearTimeout(this.interval);
     }
@@ -47,6 +47,9 @@ class NoticeView extends PureComponent {
     if (interval) {
       this.interval = setTimeout(() => {
         this.closeNotice();
+        if (callback && typeof callback === 'function') {
+          callback();
+        }
       }, interval);
     }
     
@@ -76,7 +79,7 @@ class NoticeView extends PureComponent {
         return <SquareNoticeWithBlock data={newData} />;
       }
       case noticeComponent.dropDown: {
-        return <DropDownNotice data={newData} interval={interval}/>;
+        return <DropDownNotice data={newData} interval={interval} />;
       }
     }
   }
