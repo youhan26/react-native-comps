@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    color: 'rgb(102,102,102)'
+    color: 'rgb(102,102,102)',
+    width: 250
   },
   left: {
     position: 'absolute',
@@ -66,6 +67,7 @@ const FixHeader = (props) => {
       <View style={styles.container}>
         <Text style={styles.title} numberOfLines={1}>{title}</Text>
       </View>
+      <LineSeparator />
       
       <View style={styles.left}>
         <TouchableOpacity
