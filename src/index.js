@@ -46,6 +46,7 @@ import TouchableIcon from './icons/TouchableIcon';
 
 import Notice from "./notice/Notice";
 import NoticeView from "./notice/NoticeView";
+import BaseTabView from "./tab/BaseTabView";
 
 export {
   BaseList,
@@ -75,5 +76,7 @@ export {
   BarCode,
   
   Notice,
-  NoticeView
+  NoticeView,
+  
+  BaseTabView
 };
