@@ -10,7 +10,6 @@ import {
   ViewPropTypes
 } from 'react-native';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
-import autobind from "autobind-decorator";
 
 const {width} = Dimensions.get('window');
 
@@ -22,6 +21,10 @@ export default class BaseTabView extends Component {
       index: 0,
       routes: this.props.routes || this.genIndexTitle(this.props.titles),
     };
+  
+    this.handleIndexChange = this.handleIndexChange.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
+    this.renderScene = this.renderScene.bind(this);
   }
   
   genIndexTitle(titles) {
@@ -33,12 +36,10 @@ export default class BaseTabView extends Component {
     });
   }
   
-  @autobind
   handleIndexChange(index) {
     this.setState({index});
   }
   
-  @autobind
   renderHeader(props) {
     return (
       <TabBar
@@ -50,7 +51,6 @@ export default class BaseTabView extends Component {
     );
   }
   
-  @autobind
   renderScene({route}) {
     return this.props.renderScene(route);
   }
