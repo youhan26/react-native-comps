@@ -49,6 +49,9 @@ import NoticeView from "./notice/NoticeView";
 import BaseTabView from "./tab/BaseTabView";
 import ScrollListTab from './tab/ScrollListTab';
 
+import AnimatedView from './animate/AnimatedView';
+import Animate from './animate/Animate';
+
 export {
   BaseList,
   BaseSectionList,
@@ -81,4 +84,7 @@ export {
   
   BaseTabView,
   ScrollListTab,
+  
+  AnimatedView,
+  Animate
 };
