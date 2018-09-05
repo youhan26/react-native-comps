@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   text: {
     width: 40,
     borderWidth: 1,
-    borderColor: '#e6e6e6',
+    borderColor: '#F7F7F7',
     color: '#1a1a1a',
     fontSize: 16,
     height: 32,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   btn: {
-    backgroundColor: '#e6e6e6',
+    backgroundColor: '#F7F7F7',
     width: 32,
     height: 32,
     justifyContent: 'center',
