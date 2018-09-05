@@ -5,6 +5,7 @@
 const COLOR = {
   price: '#ff6565',
   redSelect: '#ff2335',
+  tabSelectColor:'#5581FF',
   
   
   title1a: '#1a1a1a',
@@ -29,7 +30,10 @@ const COLOR = {
   bg25cbaa: '#25cbaa',
   bgc7c7c7: '#c7c7c7',
   bgc859FFE: '#859FFE',
-  bgc5C75F3: '#5C75F3',
+  bg5C75F3: '#5C75F3',
+  bg7D9FFF: '#7D9FFF',
+  bgBACCFF: '#BACCFF',
+  bgFF9096:'#FF9096',
 };
 
 
