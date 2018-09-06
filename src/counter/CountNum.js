@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
  * @returns {XML}
  * @constructor
  */
-const CountBtn = ({text, onPress, disabled}) => {
+const CountBtn = ({text, onPress, disabled, style}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled}
     >
-      <View style={styles.btn}>
+      <View style={[styles.btn, style]}>
         <Text style={{color: disabled ? '#acacac' : 'black', fontSize: 16}}>{text}</Text>
       </View>
     </TouchableOpacity>
@@ -65,7 +65,7 @@ CountBtn.defaultProps = {
 /**
  * CountNum
  */
-const CountNum = ({value, min, max, onChange, style}) => {
+const CountNum = ({value, min, max, onChange, style, buttonStyle}) => {
   const minus = () => {
     if (value > min) {
       onChange(value - 1);
@@ -84,12 +84,14 @@ const CountNum = ({value, min, max, onChange, style}) => {
         text={'-'}
         onPress={minus}
         disabled={value <= min}
+        style={buttonStyle}
       />
       <Text style={styles.text}>{value}</Text>
       <CountBtn
         text={'+'}
         onPress={add}
         disabled={value >= max}
+        style={buttonStyle}
       />
     </View>
   );
@@ -99,7 +101,7 @@ CountNum.propTypes = {
   value: PropTypes.number,
   onChange: PropTypes.func,
   min: PropTypes.number,
-  max: PropTypes.number
+  max: PropTypes.number,
 };
 
 CountNum.defaultProps = {
